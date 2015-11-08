@@ -4,6 +4,7 @@ import components.ImagePanel;
 import components.ImageScrollPane;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 
 public class MainWindow extends JFrame{
@@ -41,6 +42,17 @@ public class MainWindow extends JFrame{
         JMenuItem openMenu = new JMenuItem("Open...");
         openMenu.addActionListener((e) -> openFileChooser.showOpenDialog(mw));
         fileMenu.add(openMenu);
+        JMenuItem tabCloseMenu = new JMenuItem("Close");
+        tabCloseMenu.addActionListener((e) -> {
+            Component s = tabbedPane.getSelectedComponent();
+            if(s != null){
+                if((JOptionPane.showConfirmDialog(mw, "Really?", "TabClose", JOptionPane.OK_CANCEL_OPTION)
+                        == JOptionPane.OK_OPTION)){
+                    tabbedPane.remove(s);
+                }
+            }
+        });
+        fileMenu.add(tabCloseMenu);
         fileMenu.addSeparator();
         JMenuItem closeMenu = new JMenuItem("Exit");
         closeMenu.addActionListener((v) -> System.exit(0));
