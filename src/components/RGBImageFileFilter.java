@@ -14,15 +14,14 @@ public class RGBImageFileFilter extends FileFilter {
             return false;
         String extension = foo[foo.length - 1].toLowerCase();
 
-        if (extension.equals("rgb")) {
+        if (extension.equals("rgb") || extension.equals("hsi"))
             return true;
-        } else {
+        else
             return false;
-        }
     }
 
     @Override
     public String getDescription() {
-        return "RGB Image File(24bit, [RGB], *.rgb)";
+        return "RGB Image File(*.rgb[RGB], *.hsi)";
     }
 }

@@ -2,6 +2,7 @@ import components.RGBImageFileFilter;
 import components.RawImageFileFilter;
 import components.ImagePanel;
 import components.ImageScrollPane;
+import pixels.HSIPixel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +24,8 @@ public class MainWindow extends JFrame{
         setSize(800, 600);
         setTitle("Color Image Viewer");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        HSIPixel.setRatio(1.0 / 255, 2 * Math.PI / 255);
 
         setTabbedPane();
         setFileChooser();

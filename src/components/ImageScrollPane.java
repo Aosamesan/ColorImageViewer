@@ -1,6 +1,7 @@
 package components;
 
 import pixels.GrayScalePixel;
+import pixels.HSIPixel;
 import pixels.RGBPixel;
 
 import javax.swing.*;
@@ -50,6 +51,9 @@ public class ImageScrollPane extends JScrollPane{
                 break;
             case "rgb":
                 pane.openFile(filepath, width, RGBPixel.class);
+                break;
+            case "hsi":
+                pane.openFile(filepath, width, HSIPixel.class);
                 break;
         }
 
